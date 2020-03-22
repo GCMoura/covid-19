@@ -228,6 +228,14 @@
             height: 60px;
             z-index: 1;
         }
+        .max-text {
+            font-size: 11px;
+            color: rgb(133, 250, 184);
+        }
+        .min-text {
+            font-size: 10px;
+            color: #3D9970;
+        }
         .nav-bar {
             position: absolute;
             left: 0;

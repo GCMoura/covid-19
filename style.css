@@ -1,0 +1,292 @@
+    @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    header {
+        width: 100%;
+        position: fixed;
+        transition: all 0.5s ease-in-out;
+        z-index: 1;
+    }
+    
+    .max-header {
+        height: 100px;
+        background-color: #3D9970;
+    }
+    
+    .min-header {
+        height: 80px;
+        background-color: rgb(133, 250, 184);
+    }
+    
+    .container {
+        max-width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 60px;
+        display: grid;
+        grid-template-areas: "logo ... nav";
+        grid-template-columns: auto 1fr auto;
+        align-content: center;
+        font-family: 'Work Sans', sans-serif;
+    }
+    
+    .text {
+        font-family: 'Work Sans', sans-serif;
+        font-size: 22px;
+        position: absolute;
+        left: 25%;
+        top: 30%;
+    }
+    
+    .max-text {
+        font-size: 1em;
+        color: rgb(133, 250, 184);
+    }
+    
+    .min-text {
+        font-size: 0.875em;
+        color: #3D9970;
+    }
+    
+    .logo {
+        grid-area: logo;
+    }
+    
+    .max-logo i {
+        color: rgb(245, 50, 50);
+    }
+    
+    .min-logo i {
+        color: rgb(197, 38, 38);
+    }
+    
+    .nav-bar {
+        grid-area: nav;
+        display: grid;
+        align-content: center;
+        font-size: 22px;
+    }
+    
+    .nav-bar a {
+        text-decoration: none;
+        transition: all 0.5s ease-out;
+        position: relative;
+    }
+    
+    .max-nav a {
+        font-size: 1em;
+        color: rgb(133, 250, 184);
+    }
+    
+    .min-nav a {
+        font-size: 0.875em;
+        color: #3D9970;
+    }
+    
+    .nav-bar a::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+        position: absolute;
+        bottom: -10px;
+        left: 0px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: all 0.2s ease-out;
+    }
+    
+    .nav-bar a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .nav-bar ul {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 40px;
+    }
+    
+    .nav-bar li {
+        list-style: none;
+    }
+    
+    main section {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 22px;
+        color: #2574a9;
+    }
+    
+    main section:nth-child(odd) {
+        height: 100vh;
+        background-color: #f0f0d6;
+    }
+    
+    main section:nth-child(even) {
+        height: 100vh;
+        background-color: #ececc7;
+    }
+    
+    .menu {
+        display: none;
+    }
+    /* CONTEÚDO */
+    
+    .imgBox img {
+        height: 250px;
+        width: 200px;
+        border-radius: 15px;
+    }
+    
+    .sectionContainer {
+        position: relative;
+        width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .sectionContainer .box {
+        position: relative;
+        width: 280px;
+        height: 400px;
+        margin: 20px 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .sectionContainer .box .imgBox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip-path: circle(400px at center 100px);
+        transition: 0.5s;
+        transition-delay: 0.5s;
+    }
+    
+    .sectionContainer .box:hover .imgBox {
+        clip-path: circle(80px at center 100px);
+        transition-delay: 0s;
+    }
+    
+    .sectionContainer .box .content {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 55%;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    .sectionContainer .box .content h4 {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .sectionContainer .box .content h4,
+    .sectionContainer .box .content p,
+    .sectionContainer .box .content a {
+        opacity: 0;
+        transition: 0.5s;
+        transform: translateY(20px);
+    }
+    
+    .sectionContainer .box:hover .content h4 {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.5s;
+    }
+    
+    .sectionContainer .box:hover .content p,
+    .sectionContainer .box:hover .content a {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.7s;
+        font-size: 16px;
+    }
+    
+    @media (max-width: 768px) {
+        .container {
+            position: relative;
+            padding: 0 30px;
+            grid-template-areas: "logo ... menu";
+            grid-template-columns: auto 1fr auto;
+        }
+        .max-header {
+            height: 80px;
+            z-index: 1;
+        }
+        .min-header {
+            height: 60px;
+            z-index: 1;
+        }
+        .nav-bar {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background-color: #3D9970;
+            transform: translateX(-100%);
+            transition: all 0.4s ease-out;
+        }
+        .max-nav {
+            top: 80px;
+            height: calc(100vh - 80px);
+        }
+        .min-nav {
+            top: 60px;
+            height: calc(100vh - 60px);
+        }
+        .menu {
+            grid-area: "menu";
+            display: grid;
+            align-content: center;
+            float: right;
+        }
+        .max-menu {
+            color: rgb(133, 250, 184);
+        }
+        .min-menu {
+            color: #3D9970;
+        }
+        .menu-opened {
+            transform: translateX(0);
+        }
+        .menu i {
+            position: relative;
+            left: 80%;
+        }
+        .nav-bar ul {
+            grid-auto-flow: row;
+            grid-gap: 80px;
+            justify-content: center;
+        }
+        .nav-bar li {
+            text-align: center;
+        }
+        .min-nav a {
+            font-size: 1em;
+            color: rgb(133, 250, 184);
+        }
+        main section:nth-child(1) {
+            height: 2000px;
+        }
+        main section:nth-child(2) {
+            height: 2000px;
+        }
+        main section:nth-child(3) {
+            height: 1000px;
+        }
+        .sectionContainer {
+            display: grid;
+            grid-auto-flow: row;
+            width: 200px;
+        }
+    }
